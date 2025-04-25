@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="images/eamporium-high-resolution-logo__1_-removebg-preview.png"
+          alt="nav bar logo"
+        />
+      </div>
+
+      <div class="deliver">
+        <div class="countrySvg">
+          <img src="images/egypt-flag-icon.svg" alt="" />
+        </div>
+        <p>Deliver to <br />Cairo</p>
+      </div>
+
+      <input
+        class="search"
+        type="text"
+        placeholder="What are you looking for ?"
+      />
+
+      <ul class="navLinks">
+        <li><span>English</span></li>
+
+        <li><a class="authBtn">Login</a></li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-heart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-cart2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="body-background">
+      <div class="container">
+        <div class="sliderCategory">
+          <div class="slider">
+            <div class="slides"></div>
+
+            <button class="nav prev">&#10094;</button>
+            <button class="nav next">&#10095;</button>
+
+            <div class="dots"></div>
+          </div>
+          <div class="category">
+            <ul></ul>
+          </div>
+        </div>
+
+        <div class="recommend">
+          <h1>RECOMMENDED <span>FOR YOU</span></h1>
+          <div class="cardContainer"></div>
+        </div>
+
+        <!-- Modal dialog container -->
+        <div id="loginModal" class="modal">
+          <div class="modal-content">
+            <div class="close-img-container">
+              <img
+                id="closeModal"
+                src="images/close-icon.svg"
+                alt="close image"
+              />
+            </div>
+
+            <div class="img-container">
+              <img
+                src="images/login-signup-image.png"
+                alt="Login Logo"
+                class="img-exit"
+              />
+              <img
+                src="images/login-signup-image.png"
+                alt="Login Logo"
+                class="img-enter"
+              />
+            </div>
+            <div class="login-container">
+              <h2>Hello! Let's get started</h2>
+
+              <div class="login-register-btns">
+                <button class="login-btn btn-active">Login</button>
+                <button class="register-btn">SignUp</button>
+              </div>
+
+              <div class="login-body">
+                <form action="" class="loginForm">
+                  <div class="emailContainer">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Enter Your Email"
+                      required
+                    />
+                    <p class="emailError hide"></p>
+                  </div>
+
+                  <div class="passwordContainer">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Enter Your Password"
+                      required
+                    />
+                    <p class="passwordError hide"></p>
+                  </div>
+
+                  <div class="checkBoxContainer">
+                    <label>
+                      <input type="checkbox" name="checkbox" />
+                      Remember Me
+                    </label>
+                  </div>
+
+                  <button type="submit" class="submit-btn">Login</button>
+                </form>
+              </div>
+
+              <div class="signup-body hide">
+                <form action="" class="loginForm">
+                  <div class="nameContainer">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Enter Your Name"
+                      required
+                    />
+                    <p class="nameError hide"></p>
+                  </div>
+
+                  <div class="emailContainer">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Enter Your Email"
+                      required
+                    />
+                    <p class="emailError hide"></p>
+                  </div>
+
+                  <div class="passwordContainer">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Enter Your Password"
+                      required
+                    />
+                    <p class="passwordError hide"></p>
+                  </div>
+
+                  <div class="confirmPasswordContainer">
+                    <label for="confirm">Confirm Password</label>
+                    <input
+                      type="password"
+                      name="confirm"
+                      id="confirm"
+                      placeholder="Confirm Your Password"
+                      required
+                    />
+                    <p class="confirmPasswordError hide"></p>
+                  </div>
+
+                  <div class="phoneContainer">
+                    <label for="phone">Phone Number</label>
+                    <input
+                      type="number"
+                      name="phone"
+                      id="phone"
+                      placeholder="Confirm Your Phone Number"
+                      required
+                    />
+                    <p class="phoneError hide"></p>
+                  </div>
+
+                  <button type="submit" class="submit-btn">Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
