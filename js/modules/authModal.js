@@ -1,41 +1,3 @@
-// export function initAuthModal() {
-//   const loginModal = document.getElementById('loginModal');
-//   const closeModal = document.getElementById('closeModal');
-//   const logInBtn = document.querySelector('.login-btn');
-//   const signUpBtn = document.querySelector('.register-btn');
-//   const loginBody = document.querySelector('.login-body');
-//   const signUpBody = document.querySelector('.signup-body');
-//   const authBtn = document.querySelector('.authBtn');
-
-//   authBtn.addEventListener('click', function () {
-//     loginModal.style.display = 'flex';
-//   });
-
-//   closeModal.addEventListener('click', function () {
-//     loginModal.style.display = 'none';
-//   });
-
-//   window.addEventListener('click', function (event) {
-//     if (event.target === loginModal) {
-//       loginModal.style.display = 'none';
-//     }
-//   });
-
-//   logInBtn.addEventListener('click', () => {
-//     signUpBtn.classList.remove('btn-active');
-//     logInBtn.classList.add('btn-active');
-//     loginBody.classList.remove('hide');
-//     signUpBody.classList.add('hide');
-//   });
-
-//   signUpBtn.addEventListener('click', () => {
-//     signUpBtn.classList.add('btn-active');
-//     logInBtn.classList.remove('btn-active');
-//     loginBody.classList.add('hide');
-//     signUpBody.classList.remove('hide');
-//   });
-// }
-
 // User data structure in localStorage
 const USER_DATA_KEY = 'users';
 
@@ -57,6 +19,38 @@ export function initAuthModal() {
   if (!localStorage.getItem(USER_DATA_KEY)) {
     localStorage.setItem(USER_DATA_KEY, JSON.stringify([]));
   }
+
+  // const cartLink = document.getElementById('cartLink');
+
+  // cartLink.addEventListener('click', function (e) {
+  //   e.preventDefault();
+  //   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  //   if (currentUser) {
+  //     // User is logged in
+  //     window.location.href = 'cart.html';
+  //   } else {
+  //     // User is NOT logged in
+  //     alert('You must log in to view your cart.');
+  //     document.getElementById('loginModal').style.display = 'flex'; // Open login modal if you want
+  //   }
+  // });
+
+  const cartLink = document.getElementById('cartLink');
+
+  cartLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (currentUser) {
+      // User is logged in - redirect to cart
+      window.location.href = 'cart.html';
+    } else {
+      // User is not logged in - show login modal
+      alert('You must log in to view your cart.');
+      document.getElementById('loginModal').style.display = 'flex';
+    }
+  });
 
   // Modal control functions
   authBtn.addEventListener('click', function () {

@@ -1,77 +1,158 @@
-import { initFooter } from './modules/footer.js'; // Add this line
+import { initFooter } from './modules/footer.js';
 
-// js/cart.js
 document.addEventListener('DOMContentLoaded', function () {
   initCart();
-
   initFooter();
 });
 
 function initCart() {
-  // DOM elements
   const emptyCartView = document.getElementById('emptyCartView');
   const cartWithItemsView = document.getElementById('cartWithItemsView');
-  const removeBtn = document.querySelector('.remove-btn');
-  const decreaseBtn = document.querySelector('.decrease');
-  const increaseBtn = document.querySelector('.increase');
-  const qtyInput = document.querySelector('.qty-input');
-
-  const hasItems = true; 
-
-  if (hasItems) {
-    emptyCartView.style.display = 'none';
-    cartWithItemsView.style.display = 'flex';
-  } else {
-    emptyCartView.style.display = 'block';
-    cartWithItemsView.style.display = 'none';
-  }
-
-  // Event handlers
-  if (removeBtn) {
-    removeBtn.addEventListener('click', function () {
-      // For demo, we'll just show the empty cart when remove is clicked
-      emptyCartView.style.display = 'block';
-      cartWithItemsView.style.display = 'none';
-    });
-  }
-
-  if (decreaseBtn) {
-    decreaseBtn.addEventListener('click', function () {
-      let qty = parseInt(qtyInput.value);
-      if (qty > 1) {
-        qtyInput.value = qty - 1;
-        updateCartTotals(qtyInput.value);
-      }
-    });
-  }
-
-  if (increaseBtn) {
-    increaseBtn.addEventListener('click', function () {
-      let qty = parseInt(qtyInput.value);
-      // For demo purposes, we'll limit to 10
-      if (qty < 10) {
-        qtyInput.value = qty + 1;
-        updateCartTotals(qtyInput.value);
-      }
-    });
-  }
-}
-
-function updateCartTotals(quantity) {
-  // Update cart totals based on quantity
-  // This is a simplified version - in a real app, you'd recalculate prices
-  const basePrice = 2958.0;
-  const currentPrice = document.querySelector('.current-price');
+  const cartItemsContainer = document.querySelector('.cart-items');
+  const cartCountTitle = document.querySelector('.cart-count-title');
   const summaryPrice = document.querySelector('.summary-price');
   const checkoutBtn = document.querySelector('.checkout-btn');
 
-  const totalPrice = basePrice * quantity;
-  const formattedPrice = `EGP ${totalPrice.toLocaleString('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })}`;
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  currentPrice.textContent = formattedPrice;
-  summaryPrice.textContent = formattedPrice;
-  checkoutBtn.textContent = `Checkout (${formattedPrice})`;
+  if (!currentUser) {
+    emptyCartView.innerHTML = `
+      <div class="empty-cart-content">
+        <div class="cart-icon-circle">
+          <img src="images/empty-cart-icon.png" alt="Empty Cart" />
+        </div>
+        <h2>Please log in to view your cart</h2>
+        <button onclick="window.location.href='login.html'" class="start-shopping-btn">
+          Go to Login
+        </button>
+      </div>
+    `;
+    emptyCartView.style.display = 'block';
+    cartWithItemsView.style.display = 'none';
+    return;
+  }
+
+  const userCartKey = `cart_${currentUser.id}`;
+  let cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+
+  renderCart();
+
+  function renderCart() {
+    cartItemsContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+      emptyCartView.style.display = 'block';
+      cartWithItemsView.style.display = 'none';
+      return;
+    }
+
+    emptyCartView.style.display = 'none';
+    cartWithItemsView.style.display = 'flex';
+
+    cart.forEach((item, index) => {
+      const cartItem = document.createElement('div');
+      cartItem.classList.add('cart-item');
+
+      console.log(item);
+      
+
+
+      cartItem.innerHTML = `
+        <div class="item-image">
+          <img src="${item.image}" alt="${item.title}" />
+        </div>
+        <div class="item-details">
+          <h3 class="item-title">${item.title}</h3>
+        </div>
+        <div class="item-price">
+          <div class="current-price">EGP ${(
+            parseFloat(item.price) * (item.quantity || 1)
+          ).toLocaleString('en-US', { minimumFractionDigits: 2 })}</div>
+        </div>
+        <div class="item-actions">
+          <button class="remove-btn" data-index="${index}">
+            <span class="trash-icon">🗑</span> Remove
+          </button>
+          <div class="quantity-controls">
+            <button class="qty-btn decrease" data-index="${index}">−</button>
+            <input type="text" class="qty-input" value="${
+              item.quantity || 1
+            }" readonly />
+            <button class="qty-btn increase" data-index="${index}">+</button>
+          </div>
+        </div>
+      `;
+
+      cartItemsContainer.appendChild(cartItem);
+    });
+
+    updateSummary();
+    addEventListeners();
+  }
+
+  function addEventListeners() {
+    const removeBtns = document.querySelectorAll('.remove-btn');
+    const decreaseBtns = document.querySelectorAll('.decrease');
+    const increaseBtns = document.querySelectorAll('.increase');
+
+    removeBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const index = this.dataset.index;
+        cart.splice(index, 1);
+        saveCart();
+        renderCart();
+      });
+    });
+
+    decreaseBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const index = this.dataset.index;
+        if ((cart[index].quantity || 1) > 1) {
+          cart[index].quantity = (cart[index].quantity || 1) - 1;
+          saveCart();
+          renderCart();
+        }
+      });
+    });
+
+    increaseBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const index = this.dataset.index;
+        if ((cart[index].quantity || 1) < 10) {
+          cart[index].quantity = (cart[index].quantity || 1) + 1;
+          saveCart();
+          renderCart();
+        }
+      });
+    });
+  }
+
+  function updateSummary() {
+    const totalItems = cart.reduce(
+      (sum, item) => sum + (item.quantity || 1),
+      0
+    );
+    const totalPrice = cart.reduce(
+      (sum, item) => sum + parseFloat(item.price) * (item.quantity || 1),
+      0
+    );
+
+    cartCountTitle.textContent = `(${totalItems})`;
+    summaryPrice.textContent = `EGP ${totalPrice.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+    })}`;
+    checkoutBtn.textContent = `Checkout (EGP ${totalPrice.toLocaleString(
+      'en-US',
+      { minimumFractionDigits: 2 }
+    )})`;
+
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) {
+      cartCount.textContent = totalItems;
+    }
+  }
+
+  function saveCart() {
+    localStorage.setItem(userCartKey, JSON.stringify(cart));
+  }
 }

@@ -1,17 +1,17 @@
-// Get product ID from URL
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+// product-detail.js
 import { data } from './data.js';
 import { initFooter } from './js/modules/footer.js';
+
+document.addEventListener('DOMContentLoaded', initProductDetails);
 
 function initProductDetails() {
   initFooter();
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get('id');
   const product = data[productId];
-  console.log('product', product);
 
   if (!product) {
-    // Handle product not found
     document.body.innerHTML = '<div class="error">Product not found</div>';
     return;
   }
@@ -23,7 +23,7 @@ function initProductDetails() {
   document.getElementById('productPrice').textContent = `EGP ${product.price}`;
   document.getElementById('productBrand').textContent = product.brand;
 
-  // Set images
+  // Set product images
   const mainImage = document.getElementById('mainProductImage');
   const thumbnails = document.querySelectorAll('.thumbnail');
 
@@ -40,8 +40,8 @@ function initProductDetails() {
     }
   });
 
-  // Thumbnail click event
-  document.querySelectorAll('.thumbnail').forEach((thumb) => {
+  // Thumbnail click functionality
+  thumbnails.forEach((thumb) => {
     thumb.addEventListener('click', function () {
       document.querySelector('.thumbnail.active').classList.remove('active');
       this.classList.add('active');
@@ -49,11 +49,11 @@ function initProductDetails() {
     });
   });
 
-  // Quantity controls
+  // Quantity selector functionality
   document
     .querySelector('.quantity-btn.minus')
     .addEventListener('click', function () {
-      const input = document.querySelector('.quantity-input');
+      const input = document.getElementById('quantity-input');
       if (parseInt(input.value) > 1) {
         input.value = parseInt(input.value) - 1;
       }
@@ -62,25 +62,38 @@ function initProductDetails() {
   document
     .querySelector('.quantity-btn.plus')
     .addEventListener('click', function () {
-      const input = document.querySelector('.quantity-input');
+      const input = document.getElementById('quantity-input');
       input.value = parseInt(input.value) + 1;
     });
 
-  // Add to cart functionality
-  document.getElementById('addToCart').addEventListener('click', function () {
-    const quantity = parseInt(document.querySelector('.quantity-input').value);
-    addToCart(product, quantity);
+  // Add to Cart functionality
+  document.getElementById('addToCart').addEventListener('click', () => {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    // Show confirmation
-    alert(`${quantity} ${product.title} added to cart!`);
+    if (!currentUser) {
+      alert('Please log in to add products to your cart.');
+      window.location.href = 'login.html';
+      return;
+    }
+
+    const quantity = parseInt(document.getElementById('quantity-input').value);
+    addToCart(product, quantity);
+    alert(`${quantity} x ${product.title} added to cart!`);
   });
 }
 
-// Add to cart function
 function addToCart(product, quantity) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  // Check if product already in cart
+  if (!currentUser) {
+    alert('Please log in to add products to your cart.');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  const userCartKey = `cart_${currentUser.id}`;
+  let cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+
   const existingItem = cart.find((item) => item.id === product.id);
 
   if (existingItem) {
@@ -90,12 +103,10 @@ function addToCart(product, quantity) {
       id: product.id,
       title: product.title,
       price: product.price,
-      image: product.images[0],
+      image: product.img,
       quantity: quantity,
     });
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem(userCartKey, JSON.stringify(cart));
 }
-
-document.addEventListener('DOMContentLoaded', initProductDetails);
