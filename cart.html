@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart - E-Amporium</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <!-- Navbar (taken from your existing code) -->
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="images/eamporium-high-resolution-logo__1_-removebg-preview.png"
+          alt="nav bar logo"
+        />
+      </div>
+
+      <div class="deliver">
+        <div class="countrySvg">
+          <img src="images/egypt-flag-icon.svg" alt="" />
+        </div>
+        <p>Deliver to <br />Cairo</p>
+      </div>
+
+      <input
+        class="search"
+        type="text"
+        placeholder="What are you looking for ?"
+      />
+
+      <ul class="navLinks">
+        <li><span>English</span></li>
+        <li><a class="authBtn">Login</a></li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-heart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="cart-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-cart2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+              />
+            </svg>
+            <span class="cart-count">1</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="body-background">
+      <div class="container">
+        <!-- Cart Content -->
+        <div class="cart-container">
+          <!-- Empty Cart View (initially hidden) -->
+          <div
+            class="empty-cart-container"
+            id="emptyCartView"
+            style="display: none"
+          >
+            <div class="empty-cart-content">
+              <div class="cart-icon-circle">
+                <img src="images/empty-cart-icon.png" alt="Empty Cart" />
+              </div>
+              <h2>Your cart is empty!</h2>
+              <p>Browse our categories and discover our best deals!</p>
+              <a href="index.html" class="start-shopping-btn">Start Shopping</a>
+            </div>
+          </div>
+
+          <!-- Cart with Items View -->
+          <div class="cart-with-items" id="cartWithItemsView">
+            <div class="cart-main">
+              <div class="cart-header">
+                <h1>Cart <span class="cart-count-title">(1)</span></h1>
+              </div>
+
+              <div class="cart-items">
+                <div class="cart-item">
+                  <div class="item-image">
+                    <img src="images/anker-speaker.jpg" alt="Anker Speaker" />
+                  </div>
+                  <div class="item-details">
+                    <h3 class="item-title">
+                      Anker A3308011-PowerConf S330 Speakerphone - Black
+                    </h3>
+                    <div class="item-stock">
+                      <span class="stock-icon">⚪</span>
+                      <span class="stock-text">1 units left</span>
+                    </div>
+                    <div class="item-shipping">
+                      <img
+                        src="images/jumia-express.png"
+                        alt="Express Shipping"
+                        class="express-icon"
+                      />
+                    </div>
+                  </div>
+                  <div class="item-price">
+                    <div class="current-price">EGP 2,958.00</div>
+                    <div class="original-price">EGP 3,499.00</div>
+                    <div class="discount-tag">-15%</div>
+                  </div>
+                  <div class="item-actions">
+                    <button class="remove-btn">
+                      <span class="trash-icon">🗑</span>
+                      Remove
+                    </button>
+                    <div class="quantity-controls">
+                      <button class="qty-btn decrease">−</button>
+                      <input type="text" class="qty-input" value="1" readonly />
+                      <button class="qty-btn increase">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart-summary">
+              <div class="summary-header">
+                <h2>CART SUMMARY</h2>
+              </div>
+              <div class="summary-content">
+                <div class="summary-row">
+                  <span>Subtotal</span>
+                  <span class="summary-price">EGP 2,958.00</span>
+                </div>
+                <div class="shipping-info">
+                  <div class="shipping-icon">✓</div>
+                  <div class="shipping-text">
+                    Jumia Express items are eligible for free delivery
+                    <div class="express-logo">
+                      <img src="images/jumia-express.png" alt="Jumia Express" />
+                    </div>
+                  </div>
+                </div>
+                <button class="checkout-btn">Checkout (EGP 2,958.00)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-container">
+        <div class="support-section" id="support-section"></div>
+        <div class="categories-section" id="categories-section"></div>
+        <div class="shopping-social-section" id="shopping-social-section"></div>
+        <div class="footer-bottom">
+          <div class="copyright">© 2025 eslam. All Rights Reserved</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/cart.js" type="module"></script>
+  </body>
+</html>

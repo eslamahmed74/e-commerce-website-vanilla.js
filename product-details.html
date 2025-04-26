@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="product-detail.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="images/eamporium-high-resolution-logo__1_-removebg-preview.png"
+          alt="nav bar logo"
+        />
+      </div>
+
+      <div class="deliver">
+        <div class="countrySvg">
+          <img src="images/egypt-flag-icon.svg" alt="" />
+        </div>
+        <p>Deliver to <br />Cairo</p>
+      </div>
+
+      <input
+        class="search"
+        type="text"
+        placeholder="What are you looking for ?"
+      />
+
+      <ul class="navLinks">
+        <li><span>English</span></li>
+
+        <li><a class="authBtn">Login</a></li>
+        <li>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-heart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="cart.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-cart2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="body-background">
+      <div class="container">
+        <div class="product-details-container">
+          <div class="product-details">
+            <div class="product-images">
+              <div class="main-image">
+                <img id="mainProductImage" src="" alt="Main Product Image" />
+              </div>
+              <div class="thumbnail-container">
+                <div class="thumbnail active" data-image="">
+                  <img src="" alt="Product Thumbnail" />
+                </div>
+                <!-- <div class="thumbnail" data-image="">
+              <img src="" alt="Product Thumbnail" />
+            </div>
+            <div class="thumbnail" data-image="">
+              <img src="" alt="Product Thumbnail" />
+            </div> -->
+              </div>
+            </div>
+
+            <div class="product-info">
+              <h1 id="productTitle">Product Title</h1>
+              <div class="price-container">
+                <span class="current-price" id="productPrice"
+                  >EGP 56,399.00</span
+                >
+                <!-- <span class="original-price">EGP 59,999.00</span>
+            <span class="discount">10% OFF</span> -->
+              </div>
+
+              <div class="product-meta">
+                <div class="brand">
+                  <span>Brand:</span>
+                  <span id="productBrand">Samsung</span>
+                </div>
+                <div class="availability">
+                  <span>Availability:</span>
+                  <span class="in-stock">In Stock</span>
+                </div>
+              </div>
+
+              <div class="product-description">
+                <h3>Description</h3>
+                <p id="productDescription">
+                  Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB -
+                  Middle East Version
+                </p>
+              </div>
+
+              <div class="product-actions">
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus">-</button>
+                  <input
+                    type="number"
+                    id="quantity-input"
+                    value="1"
+                    min="1"
+                    class="quantity-input"
+                  />
+                  <button class="quantity-btn plus">+</button>
+                </div>
+
+                <button id="addToCart" class="add-to-cart-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                    />
+                  </svg>
+                  Add to Cart
+                </button>
+
+                <button class="buy-now-btn">Buy Now</button>
+              </div>
+
+              <!-- <div class="product-specs">
+            <h3>Specifications</h3>
+            <table>
+              <tr>
+                <td>Model</td>
+                <td id="specModel">Galaxy S24 Ultra</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td id="specColor">Titanium Gray</td>
+              </tr>
+              <tr>
+                <td>RAM</td>
+                <td id="specRam">12GB</td>
+              </tr>
+              <tr>
+                <td>Storage</td>
+                <td id="specStorage">256GB</td>
+              </tr>
+              <tr>
+                <td>Network</td>
+                <td id="specNetwork">5G</td>
+              </tr>
+            </table>
+          </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+          <div class="footer-container">
+            <div class="support-section" id="support-section"></div>
+            <div class="categories-section" id="categories-section"></div>
+            <div
+              class="shopping-social-section"
+              id="shopping-social-section"
+            ></div>
+            <div class="footer-bottom">
+              <div class="copyright">© 2025 eslam. All Rights Reserved</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="product-detail.js" type="module"></script>
+    <!-- <script src="js/main.js" type="module"></script> -->
+  </body>
+</html>

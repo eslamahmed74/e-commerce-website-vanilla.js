@@ -1,71 +1,8 @@
 import { getCategoryDisplayName } from './utils.js';
+import { data, categoriesData, priceFiltersData } from '../../data.js';
+import { createProductCard2 } from './products.js';
 
 export function initFilters() {
-  const categoriesData = [
-    {
-      name: 'Clothing',
-      count: 120,
-      id: 'clothing',
-      subcategories: [
-        { name: 'Men', count: 45, id: 'men' },
-        { name: 'Women', count: 63, id: 'women' },
-        { name: 'Kids', count: 12, id: 'kids' },
-      ],
-    },
-    {
-      name: 'Electronics',
-      count: 86,
-      id: 'electronics',
-      subcategories: [
-        { name: 'Phones', count: 25, id: 'phones' },
-        { name: 'Laptops', count: 32, id: 'laptops' },
-        { name: 'Accessories', count: 29, id: 'accessories' },
-      ],
-    },
-    {
-      name: 'Home & Kitchen',
-      count: 74,
-      id: 'home',
-      subcategories: [
-        { name: 'Furniture', count: 28, id: 'furniture' },
-        { name: 'Appliances', count: 31, id: 'appliances' },
-        { name: 'Decor', count: 15, id: 'decor' },
-      ],
-    },
-    {
-      name: 'Books',
-      count: 42,
-      id: 'books',
-      subcategories: [],
-    },
-  ];
-
-  // Data for quick price filters
-  const priceFiltersData = [
-    { label: 'Under $50', min: 0, max: 50 },
-    { label: '$50 - $100', min: 50, max: 100 },
-    { label: '$100 - $200', min: 100, max: 200 },
-    { label: '$200 - $500', min: 200, max: 500 },
-    { label: 'Over $500', min: 500, max: 1000 },
-  ];
-
-  // Data for products
-  const productsData = [
-    { title: 'Smartphone Pro', category: 'electronics-phones', price: 799 },
-    { title: "Men's Casual Shirt", category: 'clothing-men', price: 49 },
-    { title: 'Modern Wall Art', category: 'home-decor', price: 129 },
-    { title: 'Ultrabook Pro', category: 'electronics-laptops', price: 1299 },
-    { title: "Women's Dress", category: 'clothing-women', price: 89 },
-    { title: 'Modern Coffee Table', category: 'home-furniture', price: 349 },
-    { title: 'Bestseller Novel', category: 'books', price: 24 },
-    {
-      title: 'Wireless Earbuds',
-      category: 'electronics-accessories',
-      price: 59,
-    },
-  ];
-
-  // Generate categories HTML
   const categoryList = document.getElementById('category-list');
 
   categoriesData.forEach((category) => {
@@ -74,7 +11,6 @@ export function initFilters() {
     if (category.subcategories.length > 0) {
       categoryItem.classList.add('category-parent');
 
-      // Create subcategory list
       let subcategoriesHTML = '';
       category.subcategories.forEach((sub) => {
         subcategoriesHTML += `
@@ -111,7 +47,6 @@ export function initFilters() {
     categoryList.appendChild(categoryItem);
   });
 
-  // Generate quick price filters
   const quickPriceFilters = document.getElementById('quick-price-filters');
   priceFiltersData.forEach((filter) => {
     const button = document.createElement('button');
@@ -122,35 +57,18 @@ export function initFilters() {
     quickPriceFilters.appendChild(button);
   });
 
-  // Generate products
   const productsGrid = document.getElementById('products-grid');
-  productsData.forEach((product) => {
-    const displayCategory = getCategoryDisplayName(product.category);
-    const productCard = document.createElement('div');
-    productCard.className = 'product-card';
-    productCard.setAttribute('data-category', product.category);
-    productCard.setAttribute('data-price', product.price);
-    productCard.innerHTML = `
-      <div class="product-image">Product Image</div>
-      <div class="product-info">
-        <h3 class="product-title">${product.title}</h3>
-        <p class="product-category">${displayCategory}</p>
-        <p class="product-price">$${product.price}</p>
-      </div>
-    `;
+
+  data.forEach((product) => {
+    const productCard = createProductCard2(product);
+
     productsGrid.appendChild(productCard);
   });
 
-  // Initialize filter functionality
   initFilterFunctionality();
 }
 
 function initFilterFunctionality() {
-  // All the filter-related event listeners and functions
-  // (price range, toggles, apply/clear filters, etc.)
-  // This would include the code from your original file
-  // that handles all the filter interactions
-
   const filterTitles = document.querySelectorAll('.filter-title');
   filterTitles.forEach((title) => {
     title.addEventListener('click', function () {
