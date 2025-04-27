@@ -181,6 +181,9 @@ body {
 .sliderCategory {
   background-color: white;
 }
+.category {
+  margin-top: 20px;
+}
 
 .category ul {
   display: flex;
@@ -202,6 +205,7 @@ body {
 
 .recommend h1 {
   text-align: center;
+  margin: 20px 0;
 }
 
 .recommend h1 span {
@@ -229,7 +233,7 @@ body {
 }
 
 .recommend .card .imgContainer img:hover {
-  transform: scale(1.1);
+  transform: translateY(-5px);
 }
 
 .recommend .card .imgContainer a {
@@ -288,6 +292,7 @@ body {
 }
 
 .products h2 {
+  margin-top: 12px;
   margin-bottom: 20px;
   color: #333;
   font-size: 24px;
@@ -423,7 +428,7 @@ body {
   border-radius: 5px;
   position: absolute;
   left: 0%;
-  right: 50%;
+  right: 0%;
 }
 
 .range-input {
@@ -1080,3 +1085,25 @@ footer {
 }
 
 /*=======================================================================*/
+
+#backToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  width: 50px;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: #404553;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+#backToTopBtn:hover {
+  background-color: #555;
+}

@@ -1,4 +1,3 @@
-
 /*function addToCart(product) {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -23,12 +22,14 @@
 // (with grid-card class)
 // -----------------------------
 
+import { data } from '../../data.js';
+
 function addToCart(product, quantity) {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  
+
   if (!currentUser) {
     alert('Please log in to add products to your cart.');
-    window.location.href = 'login.html'; // Redirect to login page
+    // window.location.href = 'login.html'; // Redirect to login page
     return;
   }
 
@@ -36,7 +37,7 @@ function addToCart(product, quantity) {
   const userCartKey = `cart_${currentUser.id}`;
   let cart = JSON.parse(localStorage.getItem(userCartKey)) || [];
 
-  const existingItem = cart.find(item => item.id === product.id);
+  const existingItem = cart.find((item) => item.id === product.id);
 
   if (existingItem) {
     existingItem.quantity += quantity;
@@ -46,7 +47,7 @@ function addToCart(product, quantity) {
       title: product.title,
       price: product.price,
       image: product.img,
-      quantity: quantity
+      quantity: quantity,
     });
   }
 
@@ -148,38 +149,40 @@ export function createProductCard(product) {
 export function initProducts() {
   const cardContainer = document.querySelector('.cardContainer');
 
-  const recommended = [
-    {
-      id: 1,
-      img: 'images/recommand-images/3.png',
-      description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
-      price: '56399.00',
-    },
-    {
-      id: 2,
-      img: 'images/recommand-images/2.png',
-      description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
-      price: '56399.00',
-    },
-    {
-      id: 3,
-      img: 'images/recommand-images/4.png',
-      description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
-      price: '56399.00',
-    },
-    {
-      id: 4,
-      img: 'images/recommand-images/5.png',
-      description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
-      price: '56399.00',
-    },
-    {
-      id: 5,
-      img: 'images/recommand-images/6.png',
-      description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
-      price: '56399.00',
-    },
-  ];
+  // const recommended = [
+  //   {
+  //     id: 1,
+  //     img: 'images/recommand-images/3.png',
+  //     description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
+  //     price: '56399.00',
+  //   },
+  //   {
+  //     id: 2,
+  //     img: 'images/recommand-images/2.png',
+  //     description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
+  //     price: '56399.00',
+  //   },
+  //   {
+  //     id: 3,
+  //     img: 'images/recommand-images/4.png',
+  //     description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
+  //     price: '56399.00',
+  //   },
+  //   {
+  //     id: 4,
+  //     img: 'images/recommand-images/5.png',
+  //     description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
+  //     price: '56399.00',
+  //   },
+  //   {
+  //     id: 5,
+  //     img: 'images/recommand-images/6.png',
+  //     description: `Galaxy S24 Ultra 5G Dual SIM Titanium Gray 12GB RAM 256GB - Middle East Version`,
+  //     price: '56399.00',
+  //   },
+  // ];
+
+  const recommended = data.slice(0, 5);
 
   cardContainer.innerHTML = '';
 

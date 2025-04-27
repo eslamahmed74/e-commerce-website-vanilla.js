@@ -12,4 +12,25 @@ document.addEventListener('DOMContentLoaded', function () {
   initProducts();
   initFilters();
   initFooter();
+
+  // Get the button
+const backToTopBtn = document.getElementById("backToTopBtn");
+
+// Show button when user scrolls down 100px
+window.onscroll = function() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+};
+
+// Scroll back to top when clicked
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // Smooth scroll
+  });
+});
+
 });

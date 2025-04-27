@@ -1,7 +1,7 @@
 let id = 0;
 export const data = [
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Fireside Flannel Shirt',
     price: '1300.00',
@@ -9,15 +9,15 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Polo Shirt',
     price: '750.00',
-    img: 'images/clothes-images/men/2.jpg',
+    img: 'images/clothes-images/men/7.jpg',
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'Relax Fit Tropical Printed Shirt',
     price: '650.00',
@@ -25,7 +25,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Band Collar Linen Button-Up Shirt',
     price: '1050.00',
@@ -33,7 +33,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Band Collar Linen Button-Up Shirt',
     price: '1050.00',
@@ -41,7 +41,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Striped Button-Up Poolside Shirt',
     price: '650.00',
@@ -49,7 +49,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'Striped Regular Fit Shirt',
     price: '650.00',
@@ -57,7 +57,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Slim Flex Polo Shirt',
     price: '1600.00',
@@ -65,7 +65,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'DeFacto',
     description: 'Man Woven Regular Fit Polo Neck Long Sleeve Shirt',
     price: '779.00',
@@ -73,7 +73,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'American Eagle',
     description: 'AE Herringbone Shirt Jacket',
     price: '2300.00',
@@ -81,7 +81,7 @@ export const data = [
     category: 'clothing-men',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'zecotex',
     description: 'Distinctive summer pajama',
     price: '680.00',
@@ -89,7 +89,7 @@ export const data = [
     category: 'clothing-women',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'zecotex',
     description: 'Summer Night Gown 233',
     price: '700.00',
@@ -97,7 +97,7 @@ export const data = [
     category: 'clothing-women',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'zecotex',
     description:
       "Summer Maxi Abaya | Long Nightgown | Elegant Cotton Maxi Dress | Lightweight Fabrics for Maximum Comfort | Women's Home wear",
@@ -106,7 +106,7 @@ export const data = [
     category: 'clothing-women',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'zecotex',
     description:
       "Ribbed Viscose Pajama Set | Long Sleeve Blouse and Pants with Colorful Embroidery | Elegant & Lightweight Design | Ultimate Comfort Women's Loungewear",
@@ -115,7 +115,7 @@ export const data = [
     category: 'clothing-women',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'ARTLOOK',
     description: 'Plain long-sleeved abaya with simple joubert embroidery',
     price: '290.00',
@@ -123,7 +123,7 @@ export const data = [
     category: 'clothing-women',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'LC WAIKIKI',
     description: 'Summer Dress for Girls ',
     price: '404.00',
@@ -131,7 +131,7 @@ export const data = [
     category: 'clothing-kids',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'Coup',
     description: 'Kids Boys T-shirt Stripped with Side Pocket',
     price: '94.00',
@@ -139,7 +139,7 @@ export const data = [
     category: 'clothing-kids',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'LC WAIKIKI',
     description: 'Baby Boy Jeans Shirt Long Sleeve',
     price: '556.00',
@@ -147,7 +147,7 @@ export const data = [
     category: 'clothing-kids',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'LC WAIKIKI',
     description: 'Crew Neck Linen Girl Dress',
     price: '466.00',
@@ -155,7 +155,7 @@ export const data = [
     category: 'clothing-kids',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'Xiaomi',
     description: 'Redmi 13C Dual SIM Midnight Black 6GB RAM 128GB 4G',
     price: '5644.00',
@@ -163,7 +163,7 @@ export const data = [
     category: 'electronics-phones',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'Infinix',
     description: 'Smart 9 Dual SIM Mint Green 3+3GB RAM 64GB 4G',
     price: '4059.00',
@@ -171,7 +171,7 @@ export const data = [
     category: 'electronics-phones',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'Infinix',
     description:
       'Smart 8 Dual SIM Shiny Gold (2+2)GB RAM 64GB 4G - Middle East Version',
@@ -180,7 +180,7 @@ export const data = [
     category: 'electronics-accessories',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'Apple',
     description:
       'iPad 2022 (10th Generation) 10.9-inch 64GB WiFi Blue - Middle East Version',
@@ -189,7 +189,7 @@ export const data = [
     category: 'electronics-phones',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'Samsung',
     description:
       'Galaxy M34 Dual SIM Silver 8GB RAM 128GB 5G - Middle East Version',
@@ -198,7 +198,7 @@ export const data = [
     category: 'electronics-phones',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'DELL',
     description:
       'Vostro 3520 (Upgraded Version) Laptop With 15.6-inch Full HD Display, Intel Core i7-1255U Processor/16GB RAM/512GB SSD/DOS(Without windows)/Intel Iris Xe Graphics/ English/Arabic Black',
@@ -208,7 +208,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'Apple',
     description:
       'MacBook Air MGN63 With 13-Inch Display, M1 Chip With 8-Core Processor And 7-Core Graphics/8GB RAM DDR4/256GB SSD/English Arabic Keyboard English/Arabic Space Grey',
@@ -218,7 +218,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'DELL',
     description:
       'Vostro 3520 Laptop with 15.6 inch FHD Display/ Intel Core i7-1255U Processor/ 8GB RAM/ 512GB SSD/ Intel UHD Graphics/ Ubuntu - English/Arabic Black',
@@ -228,7 +228,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'ASUS',
     description:
       'Vivobook Go 15 Laptop With 15.6 Inch/Intel Core i3-N305/4 Gb Ram/256 Gb/Intel UHD/English/Arabic Black English/Arabic Black',
@@ -238,7 +238,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'DELL',
     description:
       'Vostro 3520 Laptop With 15.6-inch Full HD Display, Intel Core i3-1215U Processor/8GB RAM/512GB RAM/DOS(Without Windows)/Intel UHD Graphics/ English/Arabic Carbon Black',
@@ -248,7 +248,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'hohem',
     description:
       'Hohem iSteady X Ultralight 3-Axis Palm Gimbal Handheld Foldable Stabilizer',
@@ -258,7 +258,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'Samsung',
     description:
       '25W Adapter USB-C Super Fast Charging Travel Adapter (EU Plug) Black',
@@ -268,7 +268,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'NeePho',
     description:
       'NP3170 Photography Statief Outdoor Live Selfie Camera Telefoon Floor Stand Voor Dslr Camera 1.1M',
@@ -278,7 +278,7 @@ export const data = [
   },
 
   {
-    id: ++id,
+    id: id++,
     title: 'TP-LINK',
     description:
       'TP-Link Tapo C100 Indoor Home Security Wi-Fi Camera with Night Vision, 1080p High Definition - White',
@@ -287,7 +287,7 @@ export const data = [
     category: 'electronics-accessories',
   },
   {
-    id: ++id,
+    id: id++,
     title: 'BOYA',
     description: 'By-M1 Lavalier Stereo Clip Microphone BY-M1 Black',
     price: '290.00',

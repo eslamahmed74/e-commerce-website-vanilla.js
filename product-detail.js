@@ -9,8 +9,11 @@ function initProductDetails() {
 
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get('id');
+  console.log(productId);
+  
   const product = data[productId];
-
+  console.log(product);
+  
   if (!product) {
     document.body.innerHTML = '<div class="error">Product not found</div>';
     return;
